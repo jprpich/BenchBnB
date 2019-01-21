@@ -2,14 +2,23 @@
 <html>
   <head>
     <title>BenchBnB</title>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U" ></script> 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <% if current_user %>
+      <script>
+        window.currentUser = { 
+          "id": <%= current_user.id %>,
+          "username": "<%= current_user.username %>"
+          };
+      </script>
+    <% end %>
   </head>
 
   <body>
+
     <%= yield %>
   </body>
 </html>

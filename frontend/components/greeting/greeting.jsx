@@ -13,7 +13,9 @@ const Greeting = ({ currentUser, logout }) => {
     return (
       <div>
         <Link to='/signup'>Sign Up</Link>
+        <br/>
         <Link to='/login'>Log In</Link>
+        <br/>
       </div>
     )
   }

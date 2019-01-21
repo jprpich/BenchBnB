@@ -17,12 +17,17 @@ export const logout = () => dispatch => {
 };
 
 export const signup = user => dispatch => {
-  ApiUtil.signup(user).then(
-    user => dispatch(receiveCurrentUser(user)),
-    errors => dispatch(receiveErrors(errors)));
+  ApiUtil.signup(user).then( user => {
+      dispatch(receiveCurrentUser(user))
+    },
+    errors => {
+      dispatch(receiveErrors(errors))
+    }
+  );
 };
 
 const receiveCurrentUser = user => {
+
   return ({
     type: RECEIVE_CURRENT_USER,
     user
@@ -34,6 +39,7 @@ const logoutCurrentUser = () => ({
 });
 
 const receiveErrors = (errors) => {
+
   return ({
     type: RECEIVE_SESSION_ERRORS,
     errors
